@@ -1,4 +1,5 @@
 import itertools
+import math
 
 
 def is_palindrome(pair):
@@ -6,7 +7,11 @@ def is_palindrome(pair):
 
     num = pair[0] * pair[1]
     stringed = str(num)
-    half = len(stringed) / 2
+
+    if len(stringed) % 2 != 0:
+        return False
+
+    half = int(len(stringed) / 2)
     front, back = stringed[:half], stringed[half:]
 
     return front == back[::-1]
